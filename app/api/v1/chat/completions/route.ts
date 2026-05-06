@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import { NextRequest } from "next/server";
 import { validateApiKey } from "@/lib/api-keys";
 import { getNextKey } from "@/lib/hf-client";
