@@ -1,53 +1,59 @@
-import { supabase } from "./supabase";
 import { randomBytes } from "crypto";
+
+type ApiKey = {
+  id: string;
+  user_id: string;
+  key: string;
+  name: string;
+  created_at: string;
+  last_used_at: string | null;
+  is_active: boolean;
+};
+
+const fakeDb: ApiKey[] = [];
 
 export function generateKey(): string {
   return "sk_" + randomBytes(24).toString("hex");
 }
 
 export async function createApiKey(userId: string, name: string) {
-  const key = generateKey();
-  const { data, error } = await supabase
-    .from("api_keys")
-    .insert({ user_id: userId, key, name })
-    .select()
-    .single();
-  if (error) throw error;
-  return data;
+  const newKey: ApiKey = {
+    id: crypto.randomUUID(),
+    user_id: userId,
+    key: generateKey(),
+    name,
+    created_at: new Date().toISOString(),
+    last_used_at: null,
+    is_active: true,
+  };
+
+  fakeDb.push(newKey);
+
+  return newKey;
 }
 
 export async function listApiKeys(userId: string) {
-  const { data, error } = await supabase
-    .from("api_keys")
-    .select("id, name, key, created_at, last_used_at, is_active")
-    .eq("user_id", userId)
-    .order("created_at", { ascending: false });
-  if (error) throw error;
-  return data;
+  return fakeDb.filter((k) => k.user_id === userId);
 }
 
 export async function deleteApiKey(id: string, userId: string) {
-  const { error } = await supabase
-    .from("api_keys")
-    .delete()
-    .eq("id", id)
-    .eq("user_id", userId);
-  if (error) throw error;
+  const index = fakeDb.findIndex(
+    (k) => k.id === id && k.user_id === userId
+  );
+
+  if (index !== -1) {
+    fakeDb.splice(index, 1);
+  }
 }
 
 export async function validateApiKey(key: string) {
-  const { data, error } = await supabase
-    .from("api_keys")
-    .select("user_id, is_active")
-    .eq("key", key)
-    .single();
-  if (error || !data || !data.is_active) return null;
+  const found = fakeDb.find(
+    (k) => k.key === key && k.is_active
+  );
 
-  // last_used_at güncelle (await etme, gecikmeye neden olmasın)
-  supabase
-    .from("api_keys")
-    .update({ last_used_at: new Date().toISOString() })
-    .eq("key", key);
+  if (!found) return null;
 
-  return data.user_id;
+  found.last_used_at = new Date().toISOString();
+
+  return found.user_id;
 }
