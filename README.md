@@ -1,36 +1,147 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# KOI'S — Free AI & API Developer Hub
 
-## Getting Started
+🚀 **KOI'S** is an AI-powered developer platform built to centralize free APIs, AI providers, datasets, and developer resources into one unified ecosystem.
 
-First, run the development server:
+Instead of switching between multiple platforms for APIs, AI tools, providers, and tokens, KOI'S aims to simplify the developer workflow through a single accessible interface.
+
+---
+
+# 🌟 Vision
+
+Modern developers constantly jump between platforms like:
+
+* Hugging Face
+* OpenRouter
+* Groq
+* Gemini
+* Together AI
+* Replicate
+
+KOI'S was created as an **alternative approach** to fragmented AI ecosystems.
+
+Our goal is to build a centralized developer hub where users can:
+
+* discover APIs
+* access AI providers
+* explore datasets
+* test AI models
+* manage developer workflows
+
+all from one platform.
+
+---
+
+# ✨ Features
+
+* 🤖 AI-powered chat interface
+* 🔑 Free API provider access
+* 📚 API discovery system
+* 🗂️ Developer resource hub
+* 🎨 Modern responsive UI
+* ⚡ Fast Next.js architecture
+* ☁️ Railway deployment
+* 🔐 Authentication system with Clerk
+* 📡 AI provider integration
+* 🌐 SEO support with sitemap & robots
+
+---
+
+# 🛠️ Tech Stack
+
+## Frontend
+
+* Next.js 16
+* React
+* TypeScript
+* Tailwind CSS
+
+## Backend
+
+* API Routes
+* Hugging Face Inference
+* AI Provider Integration
+
+## Authentication
+
+* Clerk
+
+## Deployment
+
+* Railway
+
+---
+
+# 🧠 Problem We Solve
+
+AI development resources are currently fragmented across many platforms.
+
+Developers often need to:
+
+* search for APIs separately
+* manage multiple providers
+* switch between AI platforms
+* track different free-tier systems
+
+KOI'S simplifies this experience by providing a centralized developer environment.
+
+---
+
+# 🚀 Live Demo
+
+🌍 https://koi-s.up.railway.app/
+
+---
+
+# 📦 Installation
 
 ```bash
+git clone https://github.com/Irem0Nur/KOI-S.git
+
+cd KOI-S
+
+npm install
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+# 🔑 Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Create a `.env.local` file:
 
-## Learn More
+```env
+HF_KEY_1=your_key
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_key
+CLERK_SECRET_KEY=your_key
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# 🔮 Future Plans
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+* AI Playground
+* Provider comparison system
+* API benchmarking
+* Model latency analytics
+* Developer dashboard
+* API key management
+* Open-source datasets
+* Community features
+* AI workflow automation
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# 👥 Team
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Built during a hackathon project focused on the theme:
+
+> “Alternative”
+
+KOI'S represents an alternative approach to modern AI development ecosystems.
+
+---
+
+# 📄 License
+
+MIT License
